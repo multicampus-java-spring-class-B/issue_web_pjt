@@ -51,8 +51,8 @@ public class UserController {
 	
 	@RequestMapping(value="/user/login.do", method=RequestMethod.POST)
 	public ModelAndView login(@RequestParam("userid") String id, 
-							  @RequestParam("userpwd") String pw, 
-							  HttpServletRequest req){
+				  @RequestParam("pw") String pw, 
+				  HttpServletRequest req){
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = service.login(id, pw);
 		if(vo != null) {  // 로그인 성공
