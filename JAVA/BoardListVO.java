@@ -8,8 +8,17 @@ public class BoardListVO {
 	String board_name;
 	int view_count;
 	String Wtime;
+	String board_contents; //카테고리
 	
 	
+	public String getBoard_contents() { //카테고리
+		return board_contents;
+	}
+
+	public void setBoard_contents(String board_contents) { //카테고리
+		this.board_contents = board_contents;
+	}
+
 	public BoardListVO() {
 
 	}
