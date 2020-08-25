@@ -32,13 +32,13 @@
 		            <input type="password" class="form-control" name="pw" id="inputPassword" placeholder="비밀번호">
         		</div>
         		<div class="form-group">
-	        	    <input type="email" class="form-control" name="name" id="inputEmail" placeholder="이름">
+	        	    <input type="text" class="form-control" name="name" id="inputName" placeholder="이름">
         		</div>
         		<div class="form-group">
-	        	    <input type="email" class="form-control" name="phone" id="inputEmail" placeholder="전화번호">
+	        	    <input type="text" class="form-control" name="phone" id="inputPhone" placeholder="전화번호">
         		</div>
         		<div class="form-group">
-	        	    <input type="email" class="form-control" name="sex" id="inputEmail" placeholder="성별">
+	        	    <input type="text" class="form-control" name="sex" id="inputSex" placeholder="성별">
         		</div>
         		<button type="submit" class="btn btn-primary">회원가입</button>
    			</form>
