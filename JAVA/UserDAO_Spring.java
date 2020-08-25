@@ -82,6 +82,13 @@ public class UserDAO_Spring implements UserDAO{
 				 
 		return templete.query(sql,new Object[] {keyword} ,new UserRowMapper());
 	}
+	
+	@Override
+	public int idChk(String userid) throws Exception {
+		String sql = "select count(*) from userinfo where userid = ? ";	//count가 열이름으로 부적합하다는 에러 
+		int result = template.queryForObject(sql, Integer.class, userid);
+		return result; 
+	}
 
 }
 
