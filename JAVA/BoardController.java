@@ -21,6 +21,13 @@ public class BoardController {
 	@Autowired
 	BoardListService service;
 	
+	//MAIN_JSON
+	@RequestMapping("/jsonlist.do") //요청들어오면 key = /user/list.do value = list()
+	@ResponseBody //ajax서버에서 사용할 서버
+	public List<BoardListVO> jsonlist() {
+		return service.getBoardNameList();
+	}
+	
 	// 리스트 보여주기 
 	@RequestMapping("/boardlist/boardlist.do")
 	public ModelAndView list() {
