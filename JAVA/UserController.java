@@ -80,7 +80,7 @@ public class UserController {
 	@RequestMapping(value = "/user/add.do", method = RequestMethod.GET)
 	public ModelAndView addUser() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("user/user_write");
+		mav.setViewName("user/user_signup");
 		return mav;
 	}
 	
