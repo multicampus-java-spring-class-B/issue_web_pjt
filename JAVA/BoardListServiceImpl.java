@@ -49,5 +49,9 @@ public class BoardListServiceImpl implements BoardListService {
 		return dao.removeBoardList(value);
 	}
 
-	
+	@Override
+	public List<BoardListVO> getBoardNameList() {
+		// TODO Auto-generated method stub
+		return dao.getBoardNameList();
+	}
 }
