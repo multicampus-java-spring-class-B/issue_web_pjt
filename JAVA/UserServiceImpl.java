@@ -64,4 +64,8 @@ public class UserServiceImpl implements UserService{
 		return dao.searchUser(condition, keyword);
 	}
 	
+	@Override
+	public int IdChk(String userid) throws Exception {
+		return dao.idChk(userid);
+	}
 }
