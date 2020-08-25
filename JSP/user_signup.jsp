@@ -24,7 +24,7 @@
    				<h2>Welcome!</h2>
   				<p>개인정보를 입력하세요</p>
    			</div>
-    		<form id="Login" action="add.do" method="POST">
+    		<form id="Sign Up" action="add.do" method="POST">
 		        <div class="form-group">
 	        	    <input type="text" class="form-control" name="userid" id="inputID" placeholder="아이디">
 			    <button class="idChk" type="button" id="idChk" value="N" style="margin-left:230px;">확인</button> 
