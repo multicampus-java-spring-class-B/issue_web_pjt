@@ -94,6 +94,13 @@ public class UserController {
 		return mav;
 	}
 	
+	// id 중복 체크 컨트롤러
+	@ResponseBody
+	@RequestMapping(value = "/user/idChk")
+	public int idCheck(@RequestParam("userid") String user_id) throws Exception {
+		return service.IdChk(user_id);
+	}
+	
 	// admin에서 넘어가면 모든 유저 리스트 확인 후 특정 유저의 정보 확인
 	// user에서 넘어가면 자기 자신의 정보 확인
 	@RequestMapping("/user/adminview.do")
