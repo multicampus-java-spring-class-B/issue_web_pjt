@@ -1,10 +1,10 @@
 @charset "UTF-8";
-body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#InputForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-26347-27038-hd-wallpapers.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
-.login-form .form-control {
+.input-form .form-control {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
@@ -20,16 +20,16 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
   padding: 50px 70px 70px 71px;
 }
 
-.login-form .form-group {
+.input-form .form-group {
   margin-bottom:10px;
 }
-.login-form{ text-align:center;}
+.input-form{ text-align:center;}
 .forgot a {
   color: #777777;
   font-size: 14px;
   text-decoration: underline;
 }
-.login-form  .btn.btn-primary {
+.input-form  .btn.btn-primary {
   background: #f0ad4e none repeat scroll 0 0;
   border-color: #f0ad4e;
   color: #ffffff;
@@ -47,7 +47,7 @@ body#LoginForm{ background-image:url("https://hdwallsource.com/img/2014/9/blur-2
   font-size: 14px;
   margin: auto;
 }
-.login-form .btn.btn-primary.reset {
+.input-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
 .back { text-align: left; margin-top:10px;}
