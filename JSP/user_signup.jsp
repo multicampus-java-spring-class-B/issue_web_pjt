@@ -26,7 +26,7 @@
    			</div>
     		<form id="Login" action="add.do" method="POST">
 		        <div class="form-group">
-	        	    <input type="email" class="form-control" name="userid" id="inputEmail" placeholder="아이디">
+	        	    <input type="text" class="form-control" name="userid" id="inputID" placeholder="아이디">
         		</div>
        			<div class="form-group">
 		            <input type="password" class="form-control" name="pw" id="inputPassword" placeholder="비밀번호">
