@@ -11,12 +11,12 @@
 
 <title> Issue, Login </title>
 </head>
-<body id="LoginForm">
+<body id="InputForm">
 <div class="container">
 	<h1 class="form-heading">Login Page</h1>
 
 	
-	<div class="login-form">
+	<div class="input-form">
 		<div class="main-div">
     		<div class="panel">
    				<h2>Welcome!</h2>
