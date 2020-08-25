@@ -16,4 +16,6 @@ public interface BoardListDAO {
 	int updateBoardList(BoardListVO boardlist);
 	
 	int removeBoardList(int value);
+	
+	List<BoardListVO> getBoardNameList();
 } 
