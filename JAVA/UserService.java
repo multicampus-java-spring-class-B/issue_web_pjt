@@ -8,7 +8,9 @@ public interface UserService {
 	   UserVO login(String id,String pw);
 	   
 	   int addUser(UserVO user) throws Exception;
-	   
+	
+	   int IdChk(String userid) throws Exception;   
+	
 	   UserVO getUser(String userid);
 	   
 	   List<UserVO> getUserList();
