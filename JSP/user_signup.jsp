@@ -27,7 +27,7 @@
     		<form id="Login" action="add.do" method="POST">
 		        <div class="form-group">
 	        	    <input type="text" class="form-control" name="userid" id="inputID" placeholder="아이디">
-			    <button class="idChk" type="button" id="idChk" value="N">중복체크</button>
+			    <button class="idChk" type="button" id="idChk" value="N" style="margin-left:230px;">확인</button> 
         		</div>
        			<div class="form-group">
 		            <input type="password" class="form-control" name="pw" id="inputPassword" placeholder="비밀번호">
