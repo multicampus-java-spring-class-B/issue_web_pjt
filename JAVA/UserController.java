@@ -151,9 +151,10 @@ public class UserController {
 	// admin용 userModify는 불필요. 
 	// 수정 페이지로 이동만 하는 역할
 	@RequestMapping("/user.modify.do")
-	public ModelAndView userModify(@RequestParam("userid") String id) {
+	public ModelAndView userModify(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("user", service.getUser(id));
+		UserVO vo = (UserVO)session.getAttribute("user");
+		mav.addObject("user", service.getUser(vo.getUserid()));
 		mav.setViewName("user/user_modify");
 		return mav;
 	}
