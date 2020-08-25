@@ -18,6 +18,6 @@ public interface BoardListService {
 	
 	int removeBoardList(int value);
 	
-	
+	List<BoardListVO> getBoardNameList();
 }
 
