@@ -132,8 +132,7 @@ public class UserController {
         	service.removeUser(vo.getUser_id()); 
         	session.invalidate();
        
-        	// index설정 다시 제대로 해야함
-        	mav.setViewName("redirect:../../index.jsp");
+        	mav.setViewName("redirect:http://localhost:9000/my/index.jsp");
         	return mav;
     	}
 	
