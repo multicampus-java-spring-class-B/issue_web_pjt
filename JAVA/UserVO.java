@@ -46,7 +46,7 @@ public class UserVO {
 	public String getHp() {
 		return hp;
 	}
-	public void setPHp(String hp) {
+	public void setHp(String hp) {
 		this.hp = hp;
 	}
 	public String getSex() {
