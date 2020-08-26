@@ -58,7 +58,7 @@ public class UserController {
 		if(vo != null) {  // 로그인 성공
 			req.getSession().setAttribute("user", vo);
 			req.getSession().setAttribute("login", vo);
-			mav.setViewName("redirect:../index.jsp");
+			mav.setViewName("redirect:http://localhost:9000/my/index.jsp");
 		}else {  // 로그인 실패
 			req.setAttribute("msg", "로그인 실패, 로그인 정보를 확인하세요.");
 			mav.setViewName("login");
@@ -72,7 +72,7 @@ public class UserController {
 	public ModelAndView logout(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		req.getSession().invalidate();
-		mav.setViewName("redirect::index.jsp");
+		mav.setViewName("redirect:http://localhost:9000/my/index.jsp");
 		return mav;
 	}
 	
@@ -133,7 +133,7 @@ public class UserController {
         	session.invalidate();
        
         	// index설정 다시 제대로 해야함
-        	mav.setViewName("redirect::../../index.jsp");
+        	mav.setViewName("redirect:../../index.jsp");
         	return mav;
     	}
 	
@@ -147,7 +147,7 @@ public class UserController {
 			<version>2.9.8</version>
 		</dependency>
 	*/
-	@RequestMapping(value = "/user.adminremove.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/adminremove.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<UserVO> adminUserRemove(HttpServletRequest req) {
 		String[] ids = req.getParameterValues("user_id");
@@ -162,21 +162,21 @@ public class UserController {
 	// 정보 수정 화면 입장
 	// admin용 userModify는 불필요. 
 	// 수정 페이지로 이동만 하는 역할
-	@RequestMapping("/user.modify.do")
+	@RequestMapping("/user/modify.do")
 	public ModelAndView userModify(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = (UserVO)session.getAttribute("user");
 		mav.addObject("user", service.getUser(vo.getUser_id()));
-		mav.setViewName("user/user_modify");
+		mav.setViewName("/user/user_modify");
 		return mav;
 	}
 	
 	// 정보 수정 실행
-	@RequestMapping("/user.update.do")
+	@RequestMapping("/user/update.do")
 	// 자동적으로 Model에 바인딩되는 커맨드객체의 이름을 명시적으로 지정해준것
 	public String userUpdate(@ModelAttribute("user") UserVO vo) {  
 		service.updateUser(vo);
-		return "user/user_view";
+		return "/user/user_view";
 	}
 	
 	// 예외처리는 그대로 사용
