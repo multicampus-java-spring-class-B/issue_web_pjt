@@ -17,5 +17,7 @@ public interface BoardListService {
 	int updateBoardList(BoardListVO boardlist);
 
 	int removeBoardList(String value);
+	
+	List<BoardListVO> getBoardNameList();
 
 }
