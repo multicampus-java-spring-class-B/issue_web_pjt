@@ -34,7 +34,7 @@ function showTable(data) {
 	let tag = "";
 	tag += "<table border=1 class='tableb'>" 
 				+ "<tr>" 
-					+ "<th>userid</th>" 
+					+ "<th>user_id</th>" 
 					+ "<th>pw</th>" 
 					+ "<th>name</th>" 
 					+ "<th>hp</th>" 
@@ -45,12 +45,12 @@ function showTable(data) {
 	
 	$(data).each((i, item) => {
 		tag += "<tr>" 
-			 	+ "<td>" + item.userid + "</td>"
+			 	+ "<td>" + item.user_id + "</td>"
 			    + "<td>" + item.pw + "</td>" 
 			    + "<td>" + item.name + "</td>"
 			    + "<td>" + item.hp + "</td>"
 			    + "<td>" + item.sex + "</td>"
-			    + "<td><input type='checkbox' name='userid' value='" + item.userid + "'></td>"
+			    + "<td><input type='checkbox' name='userid' value='" + item.user_id + "'></td>"
 			  +"<tr>"
 	});
 	
@@ -99,7 +99,7 @@ function check() {
       <form action="${pageContext.request.contextPath}/user/adminremove.do" method="POST">
       <table border=1 class="tableb">
       		<tr>
-		    <th>userid</th>
+		    <th>user_id</th>
 		    <th>pw</th>
 		    <th>name</th>
 		    <th>phone</th>
@@ -109,12 +109,12 @@ function check() {
       <div class="modal-body">
       	<c:forEach var="user" items="${users}">
         	 <tr> 
-        	 	<td>${user.userid}</td>
+        	 	<td>${user.user_id}</td>
         	 	<td>${user.pw}</td>
         	 	<td>${user.name}</td>
         	 	<td>${user.hp}</td>
         	 	<td>${user.sex}</td>
-        	 	<td><input type="checkbox" name="userid" value="${user.userid}"></td>
+        	 	<td><input type="checkbox" name="userid" value="${user.user_id}"></td>
         	 </tr>
         </c:forEach>
         
