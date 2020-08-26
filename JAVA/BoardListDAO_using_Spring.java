@@ -31,7 +31,9 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 	@Override
 	public BoardListVO getPost(String title) {
 		String sql = "SELECT * FROM post WHERE title = ?";
-
+		String sql2 = "UPDATE post SET view_count = view_count+1 WHERE title = ?";
+		templete.update(sql2, new Object[] {title});
+		
 		return templete.queryForObject(sql, new Object[] { title }, new BoardListRowMapper());
 	}
 
