@@ -28,6 +28,7 @@ $(function() {
 	$('#delete-form').submit(function() {
 		$.ajax({  
 			url:'/user/adminremove.do',
+			data : $('form').serializeArray(),
 			dataType: 'json',  
 			success: function(data) { 
 				showTable(data);
@@ -50,8 +51,7 @@ function showTable(data) {
 					+ "<th>hp</th>" 
 					+ "<th>sex</th>" 
 					+ "<th><input type='submit' value='delete' onclick='return check()'></th>" 
-				+ "</tr>" 
-				+ "<div id='modal-body' class='modal-body'>	";
+				+ "</tr>";
 	
 	$(data).each((i, item) => {
 		tag += "<tr>" 
@@ -64,7 +64,7 @@ function showTable(data) {
 			  +"</tr>";
 	});
 	
-	tag += "</div></table>";
+	tag += "</table>";
 	$('#delete-form').html(tag);
 }
 	
@@ -107,7 +107,7 @@ function check() {
       
       <!-- Modal body -->
       <div class="modal-body">
-      <form action="${pageContext.request.contextPath}/user/adminremove.do" method="POST">
+      <form id="delete-form" method="POST">
       <table border=1 class="tableb">
       		<tr>
 		    <th>user_id</th>
