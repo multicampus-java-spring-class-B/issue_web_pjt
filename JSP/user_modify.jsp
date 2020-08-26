@@ -26,17 +26,17 @@
     		<form id="Modify" action="update.do" method="POST">
     			비밀번호
        			<div class="form-group">
-		        	<input type="password" name="pw" class="form-control" id="inputPassword" value="${user.userpwd}">
+		        	<input type="password" name="pw" class="form-control" id="inputPassword" value="${user.pw}">
         		</div>
         		
         		이름
         		<div class="form-group">
-	        		<input type="text" name="name" class="form-control" id="inputName" value="${user.username}">
+	        		<input type="text" name="name" class="form-control" id="inputName" value="${user.name}">
         		</div>
         		
         		전화번호
         		<div class="form-group">
-	        		<input type="text" name="hp" class="form-control" id="inputPhone" value="${user.phone}">
+	        		<input type="text" name="hp" class="form-control" id="inputPhone" value="${user.hp}">
         		</div>
         		
         		성별
