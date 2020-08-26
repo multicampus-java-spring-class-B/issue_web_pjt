@@ -46,10 +46,6 @@ html, body, h1, h2, h3, h4, h5, h6 {
 table td, th {
 	border: 1px solid;
 }
-#ctr {
-	margin-left:0%;
-	margin-right:0%;
-}
 </style>
 
 <script type="text/javascript">
@@ -109,27 +105,30 @@ table td, th {
 
 
 	<div class="w3-main" style="margin-top: 150px">
-		<div class="w3-row w3-padding-64" style="margin-left: 50px">
-			<div class="w3-twothird w3-container">
-				<h1 class="w3-text-teal">${boardlists.title}</h1>
+
+		<!-- view form 게시물 하나의 내용 보기 -->
+		<form name="f" method="get" action="">
+			<input type="hidden" name="post_id" value="${boardlists.post_id}">
+			<div class="w3-row w3-padding-64" style="margin-left: 50px">
+				<div class="w3-twothird w3-container">
+					<h1 class="w3-text-teal">${boardlists.title}</h1>
 				&nbsp;
-				<h6>${boardlists.user_id}/ ${boardlists.wtime}</h6>
-				<br>
-				<h4>${boardlists.content}</h4>
-				<br>
-				<h6>조회수 : ${boardlists.view_count}</h6>
 
-
+					<h6>${boardlists.user_id}/${boardlists.wtime}</h6>
+					<br>
+					<h4>${boardlists.content}</h4>
+					<br>
+					<h6>조회수 : ${boardlists.view_count}</h6>
+				</div>
 			</div>
-		</div>
+		</form>
 
-
-		<form id="ctr">
+		<form text-align="center">
 			<input type="button" value="수정" onClick="boardlistModify()">
 			&nbsp; <input type="button" value="삭제" onClick="boardRemove()">
 			&nbsp; <input type="button" value="목록" onClick="boardList()">
 		</form>
-		<br>
+
 	</div>
 
 
