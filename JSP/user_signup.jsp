@@ -26,7 +26,7 @@
    			</div>
     		<form id="Sign Up" action="add.do" method="POST">
 		        <div class="form-group">
-	        	    <input type="text" class="form-control" name="userid" id="inputID" placeholder="아이디">
+	        	    <input type="text" class="form-control" name="user_id" id="inputID" placeholder="아이디">
 			    <button class="idChk" type="button" id="idChk" value="N" style="margin-left:230px;">확인</button> 
         		</div>
        			<div class="form-group">
@@ -36,7 +36,7 @@
 	        	    <input type="text" class="form-control" name="name" id="inputName" placeholder="이름">
         		</div>
         		<div class="form-group">
-	        	    <input type="text" class="form-control" name="phone" id="inputPhone" placeholder="전화번호">
+	        	    <input type="text" class="form-control" name="hp" id="inputPhone" placeholder="전화번호">
         		</div>
         		<div class="form-group">
 	        	    <input type="text" class="form-control" name="sex" id="inputSex" placeholder="성별">
@@ -57,7 +57,7 @@ $(function(){
 						//통신할 서버의 url주소, data타입,성공했을 때 수행할것,error시 수행할것 
 						url:'${pageContext.request.contextPath}/user/idChk',	
 						dataType:'json',
-						data : {"userid" : $("#userid").val()},
+						data : {"user_id" : $("#user_id").val()},
 						success: function(data){	 
 							if(data==1){
 								alert("중복된 아이디입니다.");
