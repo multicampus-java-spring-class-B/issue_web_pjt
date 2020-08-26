@@ -17,7 +17,7 @@
 $(function() {
 	$('#delete-form').submit(function() {
 		$.ajax({  
-			url:'/user.adminremove.do',
+			url:'/user/adminremove.do',
 			dataType: 'json',  
 			success: function(data) { 
 				showTable(data);
@@ -51,7 +51,7 @@ function showTable(data) {
 			    + "<td>" + item.hp + "</td>"
 			    + "<td>" + item.sex + "</td>"
 			    + "<td><input type='checkbox' name='user_id' value='" + item.user_id + "'></td>"
-			  +"<tr>";
+			  +"</tr>";
 	});
 	
 	tag += "</div></table>";
