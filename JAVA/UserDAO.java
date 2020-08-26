@@ -5,19 +5,19 @@ import java.util.List;
 import biz.user.vo.UserVO;
 
 public interface UserDAO {
-	UserVO login(String id, String pw);
+	UserVO login(String user_id, String pw);
 
 	int addUser(UserVO user) throws Exception;
 
-	int idChk(String userid) throws Exception; //아이디 중복체크 
+	int idChk(String user_id) throws Exception; //아이디 중복체크 
 	
-	UserVO getUser(String userid);
+	UserVO getUser(String user_id);
 
 	List<UserVO> getUserList();
 
 	int updateUser(UserVO user);
 
-	int removeUser(String userid);
+	int removeUser(String user_id);
 
 	List<UserVO> searchUser(String condition, String keyword);
 }
