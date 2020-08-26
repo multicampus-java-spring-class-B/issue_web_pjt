@@ -36,16 +36,14 @@ content nclob,
 board_name nvarchar2(20),
 view_count number(20) default 0,
 Wtime date default sysdate,
-CONSTRAINT pst_memuser_id_fk foreign key(user_id)
-REFERENCES member(user_id),
 CONSTRAINT pst_brdname_fk foreign key(board_name)
 REFERENCES board(board_name));
 
 insert into post(post_id, title, user_id, content, board_name)
 values('0','Test','abc1234','TEST','COR');
 insert into post(post_id, title, user_id, content, board_name)
-values((select nvl(max(post_id),0)+1 from post),'Test2','adt3535','TEST2','WHE');
+values((select nvl(max(post_id),0)+1 from post),'Test2','adt3535','TEST2','DUS');
 insert into post(post_id, title, user_id, content, board_name)
-values((select nvl(max(post_id),0)+1 from post),'Test3','uub34322','TEST3','DUS');
+values((select nvl(max(post_id),0)+1 from post),'Test3','uub34322','TEST3','COR');
 insert into post(post_id, title, user_id, content, board_name)
-values((select nvl(max(post_id),0)+1 from post),'Test4','9994343','TEST4','COR');
+values((select nvl(max(post_id),0)+1 from post),'Test4','9994343','TEST4','YOU');
