@@ -138,18 +138,23 @@ public class UserController {
     	}
 	
 	
-	// @ResponseBody 어노테이션 사용하여 ajax로 json 리턴??
+	
+	/*
+	 	@ResponseBody 사용 위해서 pom.xml에 dependency 추가해야함
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+	*/
 	@RequestMapping(value = "/user.adminremove.do", method = RequestMethod.POST)
-	public ModelAndView adminUserRemove(HttpServletRequest req) {
-		ModelAndView mav = new ModelAndView();
-		
+	@ResponseBody
+	public List<UserVO> adminUserRemove(HttpServletRequest req) {
 		String[] ids = req.getParameterValues("userid");
 		for(String id : ids) {
 			service.removeUser(id);
 		}
-		
-		mav.setViewName("");  // 뷰 페이지와 연동하는 개념이 아니다..?
-		return mav;
+		return service.getUserList();
 	}
 	
 	
