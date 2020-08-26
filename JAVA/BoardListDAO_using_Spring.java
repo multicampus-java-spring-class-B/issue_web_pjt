@@ -65,6 +65,12 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 		
 		return templete.update(sql, new Object[] {value}) ;
 	}
+	@Override
+	public List<BoardListVO> getBoardNameList() {
+		String sql = "SELECT * FROM board";
+		return templete.query(sql, new CategoryMapper());
+	}
+	
 
 	class BoardListRowMapper implements RowMapper<BoardListVO> {
 
@@ -81,6 +87,15 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 			return vo;
 		}
 
+	}
+	class CategoryMapper implements RowMapper<BoardListVO> {
+		@Override
+		public BoardListVO mapRow(ResultSet rs, int rowNum) throws SQLException {
+			BoardListVO vo = new BoardListVO();
+			vo.setBoard_name(rs.getString("board_name"));
+			vo.setBoard_contents(rs.getString("board_contents"));
+			return vo;
+		}
 	}
 
 }
