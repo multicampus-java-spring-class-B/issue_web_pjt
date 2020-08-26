@@ -18,13 +18,13 @@ public class UserDAO_Spring implements UserDAO{
 	 JdbcTemplate templete; //하드코딩하지 않음
 
 	@Override
-	public UserVO login(String id, String pw) {
+	public UserVO login(String user_id, String pw) {
 		System.out.println("지금 Spring으로 연동중");
-		 String sql = "select * from userinfo where userid=? and userpwd=?";
+		 String sql = "select * from member where user_id=? and pw=?";
 		 UserVO vo = null;
 		 
 		 try {
-			 vo = templete.queryForObject(sql,new Object[] {id,pw},new UserRowMapper());
+			 vo = templete.queryForObject(sql,new Object[] {user_id,pw},new UserRowMapper());
 		 } catch (Exception e) {
 			 
 		 }
@@ -35,22 +35,22 @@ public class UserDAO_Spring implements UserDAO{
 	@Override
 	public int addUser(UserVO user) throws Exception {
 		String sql = 
-		"insert into userinfo (id, pw, name, phone, sex) values (?, ?, ?, ?, ?)";
+		"insert into member (user_id, pw, name, hp, sex) values (?, ?, ?, ?, ?)";
 
-		return templete.update(sql,user.getUserid(), user.getPw(), user.getName(), user.getPhone(), user.getSex());
+		return templete.update(sql,user.getUser_id(), user.getPw(), user.getName(), user.getHp(), user.getSex());
 	}
 
 	@Override
-	public UserVO getUser(String userid) {
-		 String sql = "select * from userinfo where userid = ?";
+	public UserVO getUser(String user_id) {
+		 String sql = "select * from member where user_id = ?";
 		 
-		return templete.queryForObject(sql,new Object[] {userid},new UserRowMapper()); //하나만 리턴하려고할때 For
+		return templete.queryForObject(sql,new Object[] {user_id},new UserRowMapper()); //하나만 리턴하려고할때 For
 	}
 
 	@Override
 	public List<UserVO> getUserList() {
 		System.out.println("지금 Spring으로 연동중");
-		 String sql = "select * from userinfo ";	 
+		 String sql = "select * from member ";	 
 		 
 		 
 		return templete.query(sql, new UserRowMapper());
@@ -58,35 +58,35 @@ public class UserDAO_Spring implements UserDAO{
 
 	@Override
 	public int updateUser(UserVO user) {
-		 String sql = "update userinfo set phone=?, sex=? "
-		 		+ " where  userid  = ? ";
+		 String sql = "update member set hp=?, sex=? "
+		 		+ " where  user_id  = ? ";
 		 
 		 
 
-		return templete.update(sql, new Object[] {user.getPhone(), user.getSex(), user.getUserid()});
+		return templete.update(sql, new Object[] {user.getHp(), user.getSex(), user.getUser_id()});
 	}
 
 	@Override
-	public int removeUser(String userid) {
-		 String sql = "delete from userinfo where  userid  = ? ";
+	public int removeUser(String user_id) {
+		 String sql = "delete from member where  user_id  = ? ";
 
 		 
 		 
-		return templete.update(sql,new Object[] {userid});
+		return templete.update(sql,new Object[] {user_id});
 	}
 
 	@Override
 	public List<UserVO> searchUser(String condition, String keyword) {
 		System.out.println("지금 spring으로 동작중");
-		String sql = "select * from userinfo where upper("+condition+") like  '%'||?||'%'";
+		String sql = "select * from member where upper("+condition+") like  '%'||?||'%'";
 				 
 		return templete.query(sql,new Object[] {keyword} ,new UserRowMapper());
 	}
 	
 	@Override
-	public int idChk(String userid) throws Exception {
-		String sql = "select count(*) from userinfo where userid = ? ";	//count가 열이름으로 부적합하다는 에러 
-		int result = template.queryForObject(sql, Integer.class, userid);
+	public int idChk(String user_id) throws Exception {
+		String sql = "select count(*) from member where user_id = ? ";	//count가 열이름으로 부적합하다는 에러 
+		int result = template.queryForObject(sql, Integer.class, user_id);
 		return result; 
 	}
 
@@ -97,10 +97,10 @@ class UserRowMapper implements RowMapper<UserVO>{
 	@Override
 	public UserVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 		UserVO vo = new UserVO();
-		vo.setUserid(rs.getString("userid"));
+		vo.setUser_id(rs.getString("user_id"));
 		vo.setPw(rs.getString("pw"));
 		vo.setName(rs.getString("name"));
-		vo.setPhone(rs.getString("phone"));
+		vo.setHp(rs.getString("hp"));
 		vo.setSex(rs.getString("sex"));
 		return vo;
 	}
