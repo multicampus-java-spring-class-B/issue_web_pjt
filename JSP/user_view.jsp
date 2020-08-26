@@ -88,7 +88,7 @@
 										<tr>
 											<td align=center><input type="button" value="수정"
 												onClick="userModify()"> &nbsp; <input type="button"
-												value="" onClick="userRemove()"> </td>
+												value="회원탈퇴" onClick="userRemove()"> </td>
 										</tr>
 									</table>
 								</td>
