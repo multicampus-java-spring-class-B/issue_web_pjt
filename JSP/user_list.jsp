@@ -12,6 +12,16 @@
 
 <title>Issue, User List</title>
 
+<style>
+	.modal-dialog {
+    	overflow-y: initial !important
+	}
+	.modal-body {
+	    height: 250px;
+	    overflow-y: auto;
+	}
+</style>
+	
 <script>
 	
 $(function() {
@@ -96,6 +106,7 @@ function check() {
       </div>
       
       <!-- Modal body -->
+      <div class="modal-body">
       <form action="${pageContext.request.contextPath}/user/adminremove.do" method="POST">
       <table border=1 class="tableb">
       		<tr>
@@ -106,7 +117,6 @@ function check() {
 		    <th>sex</th>
 		    <th><input type="submit" value="delete" onclick="return check()"></th>
  		</tr>
-      <div class="modal-body">
       	<c:forEach var="user" items="${users}">
         	 <tr> 
         	 	<td>${user.user_id}</td>
@@ -117,10 +127,9 @@ function check() {
         	 	<td><input type="checkbox" name="user_id" value="${user.user_id}"></td>
         	 </tr>
         </c:forEach>
-        
-      </div>
       </table>
       </form>
+      </div>
       
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
