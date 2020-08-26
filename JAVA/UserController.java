@@ -96,7 +96,7 @@ public class UserController {
 	
 	// id 중복 체크 컨트롤러
 	@ResponseBody
-	@RequestMapping(value = "/user/idChk")
+	@RequestMapping(value = "/user/idChk.do")
 	public int idCheck(@RequestParam("user_id") String user_id) throws Exception {
 		return service.IdChk(user_id);
 	}
