@@ -22,7 +22,7 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 
 		String sql = "INSERT INTO post (post_id, title, content, user_id, board_name, view_count, Wtime) "
 
-				+ "VALUES (?,?,?,?,?,?,?,?)";
+				+ "VALUES (?,?,?,?,?,?,?)";
 
 		return templete.update(sql, post_num.getPost_id(), post_num.getTitle(), post_num.getContent(),
 				post_num.getUser_id(), post_num.getBoard_name(), post_num.getView_count(), post_num.getWtime());
@@ -47,6 +47,7 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 		String sql = "SELECT * FROM post WHERE upper(" + condition + ") LIKE '%'||?||'%'";
 
 		return templete.query(sql,new Object[] {keyword}, new BoardListRowMapper());
+
 	}
 
 	@Override
@@ -62,15 +63,9 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 		
 		return templete.update(sql, new Object[] {value}) ;
 	}
-	
-	@Override
-	public List<BoardListVO> getBoardNameList() {
-		String sql = "SELECT * FROM board";
-		return templete.query(sql, new CategoryMapper());
-	}
-
 
 	class BoardListRowMapper implements RowMapper<BoardListVO> {
+
 		@Override
 		public BoardListVO mapRow(ResultSet rs, int rowNum) throws SQLException {
 			BoardListVO vo = new BoardListVO();
@@ -80,19 +75,10 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 			vo.setTitle(rs.getString("title"));
 			vo.setUser_id(rs.getString("user_id"));
 			vo.setView_count(rs.getInt("view_count"));
-			vo.setWtime(rs.getString("wtime"));
+			vo.setWtime(rs.getDate("Wtime"));
 			return vo;
 		}
-	}
-	class CategoryMapper implements RowMapper<BoardListVO> {
-		@Override
-		public BoardListVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-			BoardListVO vo = new BoardListVO();
-			vo.setBoard_name(rs.getString("board_name"));
-			vo.setBoard_contents(rs.getString("board_contents"));
-			return vo;
-		}
-	}
 
+	}
 
 }
