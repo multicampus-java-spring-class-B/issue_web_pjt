@@ -22,10 +22,10 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserVO login(String userid, String pw) {
+	public UserVO login(String user_id, String pw) {
 		// TODO Auto-generated method stub
 		
-		return dao.login(userid, pw);
+		return dao.login(user_id, pw);
 	}
 
 	@Override
@@ -35,9 +35,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserVO getUser(String userid) {
+	public UserVO getUser(String user_id) {
 		// TODO Auto-generated method stub
-		return dao.getUser(userid);
+		return dao.getUser(user_id);
 	}
 
 	@Override
@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int removeUser(String userid) {
+	public int removeUser(String user_id) {
 		// TODO Auto-generated method stub
-		return dao.removeUser(userid);
+		return dao.removeUser(user_id);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public int IdChk(String userid) throws Exception {
-		return dao.idChk(userid);
+	public int IdChk(String user_id) throws Exception {
+		return dao.idChk(user_id);
 	}
 }
