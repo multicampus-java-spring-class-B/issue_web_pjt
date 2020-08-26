@@ -51,11 +51,12 @@ opacity: 0.8;
   
   <span class="w3-display-topright w3-margin-right" id="UserINFO">
   <c:if test="${empty login}">
-  <button type="button" class="btn btn-light">로그인</button>
+  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/user/login.do'">로그인</button>
   </c:if>
   
   <c:if test="${!empty login}">
-  <button type="button" class="btn btn-light">로그아웃</button>
+  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/logout.do'">로그아웃</button>
+  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/logout.do'">회원정보</button>
     </c:if>
   
   </span>
@@ -85,6 +86,7 @@ opacity: 0.8;
   </div>
   <p class="w3-medium">Powered by <a href="#" target="_blank" class="w3-hover-text-green">이모저모팀</a></p>
 </footer>
+<form action="post"></form>
 
 <script>
 // Slideshow
@@ -110,7 +112,7 @@ $(function() {
 		$('#slideindex').val("YOU");
 		}
 		$('#asamblyANDgoto').attr('method', 'GET');
-		$('#asamblyANDgoto').attr('action', '${pageContext.request.contextPath}/Test2.do'); //검색하면 갈 서블릿, slideindex(카테고리)와 SearchText를 넘겨줌
+		$('#asamblyANDgoto').attr('action', '${pageContext.request.contextPath}/search.do'); //검색하면 갈 서블릿, slideindex(카테고리)와 SearchText를 넘겨줌
 		$('#asamblyANDgoto').submit();
 	})
 	
