@@ -55,7 +55,7 @@ $(function(){
 					
 					$.ajax({//ajax통신을 위한 환경설정
 						//통신할 서버의 url주소, data타입,성공했을 때 수행할것,error시 수행할것 
-						url:'${pageContext.request.contextPath}/user/idChk',	
+						url:'${pageContext.request.contextPath}/user/idChk.do',	
 						dataType:'json',
 						data : {"user_id" : $("#user_id").val()},
 						success: function(data){	 
