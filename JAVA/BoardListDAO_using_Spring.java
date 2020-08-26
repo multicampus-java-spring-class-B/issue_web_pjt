@@ -29,12 +29,12 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 	}
 
 	@Override
-	public BoardListVO getPost(String title) {
-		String sql = "SELECT * FROM post WHERE title = ?";
-		String sql2 = "UPDATE post SET view_count = view_count+1 WHERE title = ?";
-		templete.update(sql2, new Object[] {title});
-		
-		return templete.queryForObject(sql, new Object[] { title }, new BoardListRowMapper());
+	public BoardListVO getPost(int post_id) {
+		String sql = "SELECT * FROM post WHERE post_id = ?";
+		String sql2 = "UPDATE post SET view_count = view_count+1 WHERE post_id = ?";
+		templete.update(sql2, new Object[] { post_id });
+
+		return templete.queryForObject(sql, new Object[] { post_id }, new BoardListRowMapper());
 	}
 
 	@Override
@@ -48,29 +48,23 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 	public List<BoardListVO> searchBoardlist(String condition, String keyword) {
 		String sql = "SELECT * FROM post WHERE upper(" + condition + ") LIKE '%'||?||'%'";
 
-		return templete.query(sql,new Object[] {keyword}, new BoardListRowMapper());
+		return templete.query(sql, new Object[] { keyword }, new BoardListRowMapper());
 
 	}
 
 	@Override
 	public int updateBoardList(BoardListVO boardlist) {
 		String sql = "UPDATE post SET title = ?, content = ?";
-		
-		return templete.update(sql, new Object[] {boardlist.getTitle(),boardlist.getContent()});
+
+		return templete.update(sql, new Object[] { boardlist.getTitle(), boardlist.getContent() });
 	}
 
 	@Override
-	public int removeBoardList(int value) {
-		String sql = "DELETE FROM post WHERE post_id = ?";
-		
-		return templete.update(sql, new Object[] {value}) ;
+	public int removeBoardList(String value) {
+		String sql = "DELETE FROM post WHERE title = ?";
+
+		return templete.update(sql, new Object[] { value });
 	}
-	@Override
-	public List<BoardListVO> getBoardNameList() {
-		String sql = "SELECT * FROM board";
-		return templete.query(sql, new CategoryMapper());
-	}
-	
 
 	class BoardListRowMapper implements RowMapper<BoardListVO> {
 
@@ -87,15 +81,6 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 			return vo;
 		}
 
-	}
-	class CategoryMapper implements RowMapper<BoardListVO> {
-		@Override
-		public BoardListVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-			BoardListVO vo = new BoardListVO();
-			vo.setBoard_name(rs.getString("board_name"));
-			vo.setBoard_contents(rs.getString("board_contents"));
-			return vo;
-		}
 	}
 
 }
