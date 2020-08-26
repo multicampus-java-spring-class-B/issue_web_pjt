@@ -51,14 +51,22 @@ opacity: 0.8;
   
   <span class="w3-display-topright w3-margin-right" id="UserINFO">
   <c:if test="${empty login}">
-  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/user/login.do'">로그인</button>
+  	<button type="button" class="btn btn-light"><a href="${pageContext.request.contextPath}/user/login.do">로그인</a></button>
   </c:if>
   
   <c:if test="${!empty login}">
-  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/logout.do'">로그아웃</button>
-  <button type="button" class="btn btn-light" onclick="location.href='${pageContext.request.contextPath}/logout.do'">회원정보</button>
-    </c:if>
-  
+  	<button type="button" class="btn btn-light"><a href="${pageContext.request.contextPath}/logout.do">로그아웃</a></button>
+  	
+  	<c:choose>
+  		<c:when test="${login.user_id eq 'admin'}">
+			<button type="button" class="btn btn-light"><a href="${pageContext.request.contextPath}/user/list.do">유저 리스트</a></button>  		
+  		</c:when>
+  		
+  		<c:otherwise>
+  			<button type="button" class="btn btn-light"><a href="${pageContext.request.contextPath}/user/view.do">내 정보</a></button>
+  		</c:otherwise>
+  	</c:choose>
+  </c:if>
   </span>
   <a class="w3-button w3-black w3-display-right w3-margin-right w3-round w3-hide-small w3-hover-light-grey" onclick="plusDivs(1)" id="nextBTN">  <i class="fa fa-angle-right"></i></a>
   <a class="w3-button w3-black w3-display-left w3-margin-left w3-round w3-hide-small w3-hover-light-grey" onclick="subDivs(1)" id="previousBTN">  <i class="fa fa-angle-left"></i></a>
