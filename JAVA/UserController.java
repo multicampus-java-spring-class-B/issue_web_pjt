@@ -125,7 +125,7 @@ public class UserController {
 	
 	// 유저가 수행하는 회원탈퇴. 
 	// admin의 유저 삭제 기능은 보류.
-	@RequestMapping("/user.remove.do")
+	@RequestMapping("/user/remove.do")
   	public ModelAndView userRemove(HttpSession session) {
         	ModelAndView mav = new ModelAndView();
       		UserVO vo = (UserVO)session.getAttribute("user");
