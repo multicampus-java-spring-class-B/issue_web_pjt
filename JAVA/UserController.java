@@ -50,11 +50,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/login.do", method=RequestMethod.POST)
-	public ModelAndView login(@RequestParam("userid") String id, 
+	public ModelAndView login(@RequestParam("user_id") String user_id, 
 				  @RequestParam("pw") String pw, 
 				  HttpServletRequest req){
 		ModelAndView mav = new ModelAndView();
-		UserVO vo = service.login(id, pw);
+		UserVO vo = service.login(user_id, pw);
 		if(vo != null) {  // 로그인 성공
 			req.getSession().setAttribute("user", vo);
 			req.getSession().setAttribute("login", vo);
@@ -97,7 +97,7 @@ public class UserController {
 	// id 중복 체크 컨트롤러
 	@ResponseBody
 	@RequestMapping(value = "/user/idChk")
-	public int idCheck(@RequestParam("userid") String user_id) throws Exception {
+	public int idCheck(@RequestParam("user_id") String user_id) throws Exception {
 		return service.IdChk(user_id);
 	}
 	
@@ -106,7 +106,7 @@ public class UserController {
 	public ModelAndView userView(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = (UserVO)session.getAttribute("user");
-		mav.addObject("user", service.getUser(vo.getUserid()));
+		mav.addObject("user", service.getUser(vo.getUser_id()));
 		mav.setViewName("user/user_view");
 		return mav;
 	}
@@ -129,7 +129,7 @@ public class UserController {
   	public ModelAndView userRemove(HttpSession session) {
         	ModelAndView mav = new ModelAndView();
       		UserVO vo = (UserVO)session.getAttribute("user");
-        	service.removeUser(vo.getUserid()); 
+        	service.removeUser(vo.getUser_id()); 
         	session.invalidate();
        
         	// index설정 다시 제대로 해야함
@@ -150,7 +150,7 @@ public class UserController {
 	@RequestMapping(value = "/user.adminremove.do", method = RequestMethod.POST)
 	@ResponseBody
 	public List<UserVO> adminUserRemove(HttpServletRequest req) {
-		String[] ids = req.getParameterValues("userid");
+		String[] ids = req.getParameterValues("user_id");
 		for(String id : ids) {
 			service.removeUser(id);
 		}
@@ -166,7 +166,7 @@ public class UserController {
 	public ModelAndView userModify(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = (UserVO)session.getAttribute("user");
-		mav.addObject("user", service.getUser(vo.getUserid()));
+		mav.addObject("user", service.getUser(vo.getUser_id()));
 		mav.setViewName("user/user_modify");
 		return mav;
 	}
