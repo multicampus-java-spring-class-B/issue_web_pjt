@@ -12,16 +12,12 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script>
-	function userList() {
-		f.action = "list.do"
-		f.submit();
-	}
 	function userModify() {
 		f.action = "modify.do";
 		f.submit();
 	}
 	function userRemove() {
-		if (confirm("정말 삭제하시겠습니까?")) {
+		if (confirm("정말 탈퇴하시겠습니까?")) {
 			f.action = "remove.do";
 			f.submit();
 		}
@@ -92,8 +88,7 @@
 										<tr>
 											<td align=center><input type="button" value="수정"
 												onClick="userModify()"> &nbsp; <input type="button"
-												value="삭제" onClick="userRemove()"> &nbsp; <input
-												type="button" value="목록" onClick="userList()"></td>
+												value="" onClick="userRemove()"> </td>
 										</tr>
 									</table>
 								</td>
