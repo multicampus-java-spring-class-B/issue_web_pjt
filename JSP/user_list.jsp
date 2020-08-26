@@ -51,7 +51,7 @@ function showTable(data) {
 			    + "<td>" + item.hp + "</td>"
 			    + "<td>" + item.sex + "</td>"
 			    + "<td><input type='checkbox' name='user_id' value='" + item.user_id + "'></td>"
-			  +"<tr>"
+			  +"<tr>";
 	});
 	
 	tag += "</div></table>";
