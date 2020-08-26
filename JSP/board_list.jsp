@@ -82,11 +82,12 @@ html, body, h1, h2, h3, h4, h5, h6 {
 	<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 
 	<div class="w3-main" style="margin-top: 100px">
-
+	<br><br>
+	<h1 style="margin-left: 50px"> 123123 ${boardlist.board_name} </h1>
 		<c:forEach var="boardlist" items="${boardlists}">
-			<div class="w3-row w3-padding-64">
+			<div class="w3-row w3-padding-64" style="margin-left: 50px">
 				<div class="w3-twothird w3-container">
-					<a href="${pageContext.request.contextPath}/boardlist/view.do?title=${boardlist.title}">
+					<a href="${pageContext.request.contextPath}/boardlist/view.do?post_id=${boardlist.post_id}">
 						<h1 class="w3-text-teal">${boardlist.title}</h1>
 					</a>
 					<p>${boardlist.content}</p>
@@ -109,6 +110,11 @@ html, body, h1, h2, h3, h4, h5, h6 {
 				class="w3-button w3-hover-black" href="#">4</a> <a
 				class="w3-button w3-hover-black" href="#">5</a> <a
 				class="w3-button w3-hover-black" href="#">»</a>
+				<form name="f" method="get"
+            action="${pageContext.request.contextPath}/boardlist/add.do">
+            <input type="submit" value="게시물 추가" />
+         </form>
+				
 		</div>
 	</div>
 
