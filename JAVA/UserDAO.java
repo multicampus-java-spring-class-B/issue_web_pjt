@@ -9,6 +9,8 @@ public interface UserDAO {
 
 	int addUser(UserVO user) throws Exception;
 
+	int idChk(String userid) throws Exception; //아이디 중복체크 
+	
 	UserVO getUser(String userid);
 
 	List<UserVO> getUserList();
