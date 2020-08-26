@@ -50,7 +50,7 @@ function showTable(data) {
 			    + "<td>" + item.name + "</td>"
 			    + "<td>" + item.hp + "</td>"
 			    + "<td>" + item.sex + "</td>"
-			    + "<td><input type='checkbox' name='userid' value='" + item.user_id + "'></td>"
+			    + "<td><input type='checkbox' name='user_id' value='" + item.user_id + "'></td>"
 			  +"<tr>"
 	});
 	
@@ -102,7 +102,7 @@ function check() {
 		    <th>user_id</th>
 		    <th>pw</th>
 		    <th>name</th>
-		    <th>phone</th>
+		    <th>hp</th>
 		    <th>sex</th>
 		    <th><input type="submit" value="delete" onclick="return check()"></th>
  		</tr>
@@ -114,7 +114,7 @@ function check() {
         	 	<td>${user.name}</td>
         	 	<td>${user.hp}</td>
         	 	<td>${user.sex}</td>
-        	 	<td><input type="checkbox" name="userid" value="${user.user_id}"></td>
+        	 	<td><input type="checkbox" name="user_id" value="${user.user_id}"></td>
         	 </tr>
         </c:forEach>
         
