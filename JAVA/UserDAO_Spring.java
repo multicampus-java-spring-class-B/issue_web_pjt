@@ -15,7 +15,7 @@ import biz.user.vo.UserVO;
 public class UserDAO_Spring implements UserDAO{
 
 	@Autowired
-	 JdbcTemplate templete; //하드코딩하지 않음
+	 JdbcTemplate template; //하드코딩하지 않음
 
 	@Override
 	public UserVO login(String user_id, String pw) {
@@ -24,7 +24,7 @@ public class UserDAO_Spring implements UserDAO{
 		 UserVO vo = null;
 		 
 		 try {
-			 vo = templete.queryForObject(sql,new Object[] {user_id,pw},new UserRowMapper());
+			 vo = template.queryForObject(sql,new Object[] {user_id,pw},new UserRowMapper());
 		 } catch (Exception e) {
 			 
 		 }
@@ -37,14 +37,14 @@ public class UserDAO_Spring implements UserDAO{
 		String sql = 
 		"insert into member (user_id, pw, name, hp, sex) values (?, ?, ?, ?, ?)";
 
-		return templete.update(sql,user.getUser_id(), user.getPw(), user.getName(), user.getHp(), user.getSex());
+		return template.update(sql,user.getUser_id(), user.getPw(), user.getName(), user.getHp(), user.getSex());
 	}
 
 	@Override
 	public UserVO getUser(String user_id) {
 		 String sql = "select * from member where user_id = ?";
 		 
-		return templete.queryForObject(sql,new Object[] {user_id},new UserRowMapper()); //하나만 리턴하려고할때 For
+		return template.queryForObject(sql,new Object[] {user_id},new UserRowMapper()); //하나만 리턴하려고할때 For
 	}
 
 	@Override
@@ -53,7 +53,7 @@ public class UserDAO_Spring implements UserDAO{
 		 String sql = "select * from member ";	 
 		 
 		 
-		return templete.query(sql, new UserRowMapper());
+		return template.query(sql, new UserRowMapper());
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class UserDAO_Spring implements UserDAO{
 		 
 		 
 
-		return templete.update(sql, new Object[] {user.getHp(), user.getSex(), user.getUser_id()});
+		return template.update(sql, new Object[] {user.getHp(), user.getSex(), user.getUser_id()});
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class UserDAO_Spring implements UserDAO{
 
 		 
 		 
-		return templete.update(sql,new Object[] {user_id});
+		return template.update(sql,new Object[] {user_id});
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class UserDAO_Spring implements UserDAO{
 		System.out.println("지금 spring으로 동작중");
 		String sql = "select * from member where upper("+condition+") like  '%'||?||'%'";
 				 
-		return templete.query(sql,new Object[] {keyword} ,new UserRowMapper());
+		return template.query(sql,new Object[] {keyword} ,new UserRowMapper());
 	}
 	
 	@Override
