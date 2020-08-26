@@ -89,8 +89,8 @@ public class UserController {
 	public ModelAndView addUser(UserVO vo, HttpServletRequest req) throws Exception {
 		// 동적 바인딩 하기 위해서 setter 내의 변수 이름과 <form>태그 input 이름 맞춰줄 것 
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("redirect:/user/list.do");
 		service.addUser(vo);
+		mav.setViewName("redirect:/user/login.do");
 		return mav;
 	}
 	
