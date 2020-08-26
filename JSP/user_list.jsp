@@ -13,9 +13,57 @@
 <title>Issue, User List</title>
 
 <script>
+	
+$(function() {
+	$('#delete-form').submit(function() {
+		$.ajax({  
+			url:'/user.adminremove.do',
+			dataType: 'json',  
+			success: function(data) { 
+				showTable(data);
+			},
+			error: function(err) {
+				error = err;
+				alert("오류 발생! 다시 시도해주세요");
+			}  
+		});
+	});
+});
+
+function showTable(data) {
+	let tag = "";
+	tag += "<table border=1 class='tableb'>" 
+				+ "<tr>" 
+					+ "<th>userid</th>" 
+					+ "<th>pw</th>" 
+					+ "<th>name</th>" 
+					+ "<th>phone</th>" 
+					+ "<th>sex</th>" 
+					+ "<th><input type='submit' value='delete' onclick='return check()'></th>" 
+				+ "</tr>" 
+				+ "<div id='modal-body' class='modal-body'>	";
+	
+	$(data).each((i, item) => {
+		tag += "<tr>" 
+			 	+ "<td>" + item.userid + "</td>"
+			    + "<td>" + item.pw + "</td>" 
+			    + "<td>" + item.name + "</td>"
+			    + "<td>" + item.phone + "</td>"
+			    + "<td>" + item.sex + "</td>"
+			    + "<td><input type='checkbox' name='userid' value='" + item.userid + "'></td>"
+			  +"<tr>"
+	});
+	
+	tag += "</div></table>";
+	$('#delete-form').html(tag);
+}
+	
+	
+	
 function check() {
 	return confirm("선택한 유저들을 삭제합니다");
 }
+	
 </script>
 
 </head>
@@ -50,13 +98,13 @@ function check() {
       <!-- Modal body -->
       <form action="${pageContext.request.contextPath}/user/adminremove.do" method="POST">
       <table border=1 class="tableb">
-      	<tr>
+      		<tr>
 		    <th>userid</th>
 		    <th>pw</th>
 		    <th>name</th>
-		    <th>hp</th>
-			<th>sex</th>
-			<th><input type="submit" value="제거" onclick="return check()"></th>
+		    <th>phone</th>
+		    <th>sex</th>
+		    <th><input type="submit" value="delete" onclick="return check()"></th>
  		</tr>
       <div class="modal-body">
       	<c:forEach var="user" items="${users}">
