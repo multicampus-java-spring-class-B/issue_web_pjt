@@ -1,7 +1,7 @@
 package controller;
 
 import java.lang.ProcessBuilder.Redirect;
-
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +22,13 @@ public class BoardController {
 
 	@Autowired
 	BoardListService service;
+	
+	//MAIN_JSON
+	@RequestMapping("/jsonlist.do")
+	@ResponseBody //ajax서버에서 사용할 서버
+	public List<BoardListVO> jsonlist() {
+		return service.getBoardNameList();
+	}
 
 	// 리스트 보여주기
 	@RequestMapping("/boardlist/list.do")
