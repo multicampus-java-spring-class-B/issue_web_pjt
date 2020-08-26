@@ -101,16 +101,6 @@ public class UserController {
 		return service.IdChk(user_id);
 	}
 	
-	// admin에서 넘어가면 모든 유저 리스트 확인 후 특정 유저의 정보 확인
-	// user에서 넘어가면 자기 자신의 정보 확인
-	@RequestMapping("/user/adminview.do")
-	public ModelAndView adminUserView(@RequestParam("userid") String userid) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("user", service.getUser(userid));
-		mav.setViewName("user/user_view");
-		return mav;
-	}
-	
 	// user용 userView만들어야함
 	@RequestMapping("/user/view.do")
 	public ModelAndView userView(HttpSession session) {
@@ -136,16 +126,33 @@ public class UserController {
 	// 유저가 수행하는 회원탈퇴. 
 	// admin의 유저 삭제 기능은 보류.
 	@RequestMapping("/user.remove.do")
-    public ModelAndView userRemove(HttpSession session) {
-       ModelAndView mav = new ModelAndView();
-       UserVO vo = (UserVO)session.getAttribute("user");
-       service.removeUser(vo.getUserid()); 
-       session.invalidate();
+  	public ModelAndView userRemove(HttpSession session) {
+        	ModelAndView mav = new ModelAndView();
+      		UserVO vo = (UserVO)session.getAttribute("user");
+        	service.removeUser(vo.getUserid()); 
+        	session.invalidate();
        
-       // index설정 다시 제대로 해야함
-       mav.setViewName("redirect::../../index.jsp");
-       return mav;
-    }
+        	// index설정 다시 제대로 해야함
+        	mav.setViewName("redirect::../../index.jsp");
+        	return mav;
+    	}
+	
+	
+	// @ResponseBody 어노테이션 사용하여 ajax로 json 리턴??
+	@RequestMapping(value = "/user.adminremove.do", method = RequestMethod.POST)
+	public ModelAndView adminUserRemove(HttpServletRequest req) {
+		ModelAndView mav = new ModelAndView();
+		
+		String[] ids = req.getParameterValues("userid");
+		for(String id : ids) {
+			service.removeUser(id);
+		}
+		
+		mav.setViewName("");  // 뷰 페이지와 연동하는 개념이 아니다..?
+		return mav;
+	}
+	
+	
 	
 	// 정보 수정 화면 입장
 	// admin용 userModify는 불필요. 
