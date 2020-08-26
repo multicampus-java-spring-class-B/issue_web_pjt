@@ -58,12 +58,12 @@ public class UserDAO_Spring implements UserDAO{
 
 	@Override
 	public int updateUser(UserVO user) {
-		 String sql = "update member set hp=?, sex=? "
+		 String sql = "update member set pw=?, name=?, hp=?, sex=? "
 		 		+ " where  user_id  = ? ";
 		 
 		 
 
-		return template.update(sql, new Object[] {user.getHp(), user.getSex(), user.getUser_id()});
+		return template.update(sql, new Object[] {user.getPw(), user.getName(), user.getHp(), user.getSex(), user.getUser_id()});
 	}
 
 	@Override
