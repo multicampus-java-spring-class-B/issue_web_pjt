@@ -53,7 +53,7 @@
 								<td width="20"></td>
 								<td>
 									<!--contents-->
-									<table width=590 border=0 cellpadding=0 cellspacing=0>
+									<table width=480 border=0 cellpadding=0 cellspacing=0>
 										<tr>
 											<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>사용자
 													관리 - 사용자 정보보기</b></td>
@@ -61,11 +61,11 @@
 									</table> <br> <!-- view Form  -->
 									<form name="f" method="post" action="">
 										<input type="hidden" name="userid" value="${user.userid }">
-										<table border="0" cellpadding="0" cellspacing="1" width="610"
+										<table border="0" cellpadding="0" cellspacing="1" width="400"
 											bgcolor="BBBBBB">
 											<tr>
 												<td width=120 align=center bgcolor="E6ECDE" height="22">사용자
-													아이디</td>
+													id</td>
 												<td width=490 bgcolor="ffffff" style="padding-left: 10">
 													${user.userid}</td>
 											</tr>
@@ -75,7 +75,7 @@
 													${user.username}</td>
 											</tr>
 											<tr>
-												<td width=120 align=center bgcolor="E6ECDE" height="22">이메일주소</td>
+												<td width=120 align=center bgcolor="E6ECDE" height="22">이메일</td>
 												<td width=490 bgcolor="ffffff" style="padding-left: 10">
 													${user.email}</td>
 											</tr>
