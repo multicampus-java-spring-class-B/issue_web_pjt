@@ -82,20 +82,59 @@ html, body, h1, h2, h3, h4, h5, h6 {
 	<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
 
 	<div class="w3-main" style="margin-top: 100px">
-	<br><br>
-	<h1 style="margin-left: 50px"> 123123 ${boardlist.board_name} </h1>
-		<c:forEach var="boardlist" items="${boardlists}">
-			<div class="w3-row w3-padding-64" style="margin-left: 50px">
-				<div class="w3-twothird w3-container">
-					<a href="${pageContext.request.contextPath}/boardlist/view.do?post_id=${boardlist.post_id}">
-						<h1 class="w3-text-teal">${boardlist.title}</h1>
-					</a>
-					<p>${boardlist.content}</p>
+
+		<%-- <form name="f" method="get"
+			action="${pageContext.request.contextPath}/boardlist/add.do">
+			<c:forEach var="boardlist" items="${boardlists}">
+				<div class="w3-row w3-padding-64">
+					<div class="w3-twothird w3-container">
+						<a
+							href="${pageContext.request.contextPath}/boardlist/view.do?post_id=${boardlist.post_id}">${boardlist.title}</a>
+						<p>
+							<td nowrap="nowrap"><div style='width: 100; overflow: hidden; text-overflow: ellipsis'>${boardlist.content}</div></td>
+						</p>
+
+					</div>
 				</div>
+			</c:forEach>
+		</form>
+ --%>
+
+ 		
+ 		<form name="f" method="get"
+			action="${pageContext.request.contextPath}/boardlist/add.do">
+			<c:forEach var="boardlist" items="${boardlists}">
+				<div class="w3-row">
+					<div class="w3-twothird w3-container">
+						<a
+							href="${pageContext.request.contextPath}/boardlist/view.do?post_id=${boardlist.post_id}"><h3 class="w3-text-teal">${boardlist.title}</h3>
+							</a>
+						
+						
+						<div style='height: 100px; width: 300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;'>
+					<%-- 	${boardlist.content} --%>
+						<p>${boardlist.content}						</p>
+
+					</div>
+				</div>
+			</c:forEach>
+		</form>
+		
+ 
+		<div class="w3-row">
+			<div class="w3-twothird w3-container">
+				<a href="/view.do"><h1 class="w3-text-teal">Corona2
+						@@@@@@@@@@@</h1></a>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit
+					amet, consectetur adipisicing elit, sed do eiusmod tempor
+					incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+					veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+					ex ea commodo consequat.</p>
 			</div>
-
-		</c:forEach>
-
+		</div>
 	</div>
 
 
@@ -109,12 +148,12 @@ html, body, h1, h2, h3, h4, h5, h6 {
 				class="w3-button w3-hover-black" href="#">3</a> <a
 				class="w3-button w3-hover-black" href="#">4</a> <a
 				class="w3-button w3-hover-black" href="#">5</a> <a
-				class="w3-button w3-hover-black" href="#">»</a>
-				<form name="f" method="get"
-            action="${pageContext.request.contextPath}/boardlist/add.do">
-            <input type="submit" value="게시물 추가" />
-         </form>
-				
+				class="w3-button w3-hover-black" href="#">»</a> <br> <br>
+			<form name="f" method="get"
+				action="${pageContext.request.contextPath}/boardlist/add.do">
+				<input type="submit" value="게시물 추가" />
+			</form>
+
 		</div>
 	</div>
 
