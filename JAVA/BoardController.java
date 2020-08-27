@@ -101,5 +101,24 @@ public class BoardController {
 //      model.addAttribute("Exception", e);
 //      return "error";
 //   }
+	
+		//검색해서 board_list로 넘겨줌
+	@RequestMapping("/search.do")
+	public ModelAndView hello(HttpServletRequest req) {
+		String board_name = req.getParameter("slideindex");
+		String search = req.getParameter("SearchText");
+		System.out.println(board_name + search);
+		List<BoardListVO> list = service.searchBoardlist(board_name, search);
+		String listSize = Integer.toString(list.size());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("search",search); //혹시몰라 이것도 넘겨줌
+		mav.addObject("board_name", board_name); //혹시몰라 이것도 넘겨줌
+		mav.addObject("listcnt", listSize);
+		mav.addObject("boardlist", list);
+		System.out.println(list);
+		mav.setViewName("board");
+		return mav;
+	}
 
 }
