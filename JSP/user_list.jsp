@@ -25,9 +25,9 @@
 <script>
 	
 $(function() {
-	$('#delete-form').submit(function() {
+	$('#delete-button').click(function() {
 		$.ajax({  
-			url:'/user/adminremove.do',
+			url:'${pageContext.request.contextPath}/user/adminremove.do',
 			data : $('form').serializeArray(),
 			dataType: 'json',  
 			success: function(data) { 
@@ -60,7 +60,7 @@ function showTable(data) {
 			    + "<td>" + item.name + "</td>"
 			    + "<td>" + item.hp + "</td>"
 			    + "<td>" + item.sex + "</td>"
-			    + "<td><input type='checkbox' name='user_id' value='" + item.user_id + "'></td>"
+			    + "<td><input id='delete-button' type='checkbox' name='user_id' value='" + item.user_id + "'></td>"
 			  +"</tr>";
 	});
 	
@@ -115,7 +115,7 @@ function check() {
 		    <th>name</th>
 		    <th>hp</th>
 		    <th>sex</th>
-		    <th><input type="submit" value="delete" onclick="return check()"></th>
+		    <th><input id='delete-button' type="submit" value="delete" onclick="return check()"></th>
  		</tr>
       	<c:forEach var="user" items="${users}">
         	 <tr> 
