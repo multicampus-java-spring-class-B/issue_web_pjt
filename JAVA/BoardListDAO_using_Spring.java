@@ -44,12 +44,19 @@ public class BoardListDAO_using_Spring implements BoardListDAO {
 		return templete.query(sql, new BoardListRowMapper());
 	}
 
+	/*
 	@Override
 	public List<BoardListVO> searchBoardlist(String condition, String keyword) {
 		String sql = "SELECT * FROM post WHERE upper(" + condition + ") LIKE '%'||?||'%'";
 
 		return templete.query(sql, new Object[] { keyword }, new BoardListRowMapper());
 
+	}*/
+	@Override
+	public List<BoardListVO> searchBoardlist(String condition, String keyword) {
+		String lowerkey = keyword.toLowerCase();
+		String sql = "SELECT * FROM post WHERE Board_NAME = ? and lower(title) LIKE ?";
+		return templete.query(sql,new Object[] {condition,"%"+lowerkey+"%"}, new BoardListRowMapper());
 	}
 
 	@Override
