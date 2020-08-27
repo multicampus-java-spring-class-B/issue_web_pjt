@@ -65,7 +65,7 @@ opacity: 0.8;
 			
 			<!-- Button trigger modal -->
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-				<a href="${pageContext.request.contextPath}/user/list.do">유저 리스트</a>
+				유저 리스트
 			</button>
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
