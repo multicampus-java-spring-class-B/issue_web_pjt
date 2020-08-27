@@ -22,13 +22,6 @@ public class BoardController {
 
 	@Autowired
 	BoardListService service;
-	
-	//MAIN_JSON
-	@RequestMapping("/jsonlist.do")
-	@ResponseBody //ajax서버에서 사용할 서버
-	public List<BoardListVO> jsonlist() {
-		return service.getBoardNameList();
-	}
 
 	// 리스트 보여주기
 	@RequestMapping("/boardlist/list.do")
@@ -61,14 +54,14 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardlists", service.getPost(post_id));
 		mav.setViewName("/boardlist/board_view");
-
+		
 		return mav;
 	}
 
 	// 게시물 삭제하기
 	@RequestMapping("/boardlist/remove.do")
-	public String remove(String title) {
-		service.removeBoardList(title);
+	public String remove(int post_id) {
+		service.removeBoardList(post_id);
 
 		return "redirect:/boardlist/list.do";
 	}
@@ -79,7 +72,7 @@ public class BoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardlists", service.getPost(post_id));
 		mav.setViewName("boardlist/board_modify");
-
+		
 		return mav;
 	}
 
@@ -91,34 +84,15 @@ public class BoardController {
 		System.out.println(vo);
 		mav.addObject("boardlists", vo);
 		mav.setViewName("boardlist/board_view");
-
+		
 		return mav;
 	}
 
 	// error 처리
-//   @ExceptionHandler(Exception.class)
-//   public String ex(Exception e, Model model) {
-//      model.addAttribute("Exception", e);
-//      return "error";
-//   }
-	
-		//검색해서 board_list로 넘겨줌
-	@RequestMapping("/search.do")
-	public ModelAndView hello(HttpServletRequest req) {
-		String board_name = req.getParameter("slideindex");
-		String search = req.getParameter("SearchText");
-		System.out.println(board_name + search);
-		List<BoardListVO> list = service.searchBoardlist(board_name, search);
-		String listSize = Integer.toString(list.size());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("search",search); //혹시몰라 이것도 넘겨줌
-		mav.addObject("board_name", board_name); //혹시몰라 이것도 넘겨줌
-		mav.addObject("listcnt", listSize);
-		mav.addObject("boardlist", list);
-		System.out.println(list);
-		mav.setViewName("board");
-		return mav;
-	}
+//	@ExceptionHandler(Exception.class)
+//	public String ex(Exception e, Model model) {
+//		model.addAttribute("Exception", e);
+//		return "error";
+//	}
 
 }
