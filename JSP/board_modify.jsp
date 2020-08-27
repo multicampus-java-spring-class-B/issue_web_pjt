@@ -34,7 +34,6 @@
 html, body, h1, h2, h3, h4, h5, h6 {
 	font-family: "Roboto", sans-serif;
 }
-
 .w3-sidebar {
 	z-index: 3;
 	width: 250px;
@@ -52,22 +51,19 @@ html, body, h1, h2, h3, h4, h5, h6 {
 		<input type="hidden" name="wtime" id="wtime" value="${boardlists.wtime}">
 
 		<table>
-			<tr>
-				<th>제목</th>
-				<th><input type="text" name="title" id="title"
-					value="${boardlists.title}"></th>
-			</tr>
-
-			<tr>
-				<th>내용</th>
-				<th><input type="text" name="content" id="content"
-					value="${boardlists.content}"></th>
-			</tr>
-			<tr>
-				<th><input type="submit" value="완료"
-					onsubmit="return confirm('정말로 수정하시겠습니까?');"></th>
-			</tr>
-		</table>
+		<tr>
+			<th  width = 350 align = "center" height = "250">제목</th>
+			<th width = 450  style="padding-left:10"><input type="text" name="title" id="title" value="${boardlists.title}"></th>
+		</tr>
+		
+		<tr>
+			<th  width = 350 align = "center" height = "250">내용</th>
+			<th width = 450  style="padding-left:10"><input type="text" name="content" id="content" value="${boardlists.content}"></th>
+		</tr>
+		<tr>
+			<th><input type = "submit" value = "완료" onsubmit="return confirm('정말로 수정하시겠습니까?');"></th>
+		</tr>
+	</table>
 
 	</form>
 
@@ -101,10 +97,8 @@ html, body, h1, h2, h3, h4, h5, h6 {
 	<script>
 		// Get the Sidebar
 		var mySidebar = document.getElementById("mySidebar");
-
 		// Get the DIV with overlay effect
 		var overlayBg = document.getElementById("myOverlay");
-
 		// Toggle between showing and hiding the sidebar, and add overlay effect
 		function w3_open() {
 			if (mySidebar.style.display === 'block') {
@@ -115,7 +109,6 @@ html, body, h1, h2, h3, h4, h5, h6 {
 				overlayBg.style.display = "block";
 			}
 		}
-
 		// Close the sidebar with the close button
 		function w3_close() {
 			mySidebar.style.display = "none";
