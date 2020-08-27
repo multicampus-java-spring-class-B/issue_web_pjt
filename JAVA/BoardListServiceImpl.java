@@ -17,14 +17,17 @@ public class BoardListServiceImpl implements BoardListService {
 	@Autowired
 	@Qualifier("spring")
 	BoardListDAO dao;
-
+	
+	
 	public BoardListServiceImpl() {
-	}
+}
 
+	
 	public BoardListServiceImpl(BoardListDAO dao) {
 
 		this.dao = dao;
 	}
+
 
 	@Override
 	public int addPost(BoardListVO post_num) throws Exception {
@@ -57,15 +60,10 @@ public class BoardListServiceImpl implements BoardListService {
 	}
 
 	@Override
-	public int removeBoardList(String value) {
+	public int removeBoardList(int post_id) {
 		// TODO Auto-generated method stub
-		return dao.removeBoardList(value);
-	}
-	
-	@Override
-	public List<BoardListVO> getBoardNameList() {
-		// TODO Auto-generated method stub
-		return dao.getBoardNameList();
+		return dao.removeBoardList(post_id);
 	}
 
+	
 }
