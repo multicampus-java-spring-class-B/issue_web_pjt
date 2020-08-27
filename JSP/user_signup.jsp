@@ -26,7 +26,7 @@
    			</div>
     		<form id="Sign Up" action="add.do" method="POST">
 		        <div class="form-group">
-	        	    <input type="text" class="form-control" name="user_id" id="inputID" placeholder="아이디">
+	        	    <input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디">
 			    <button class="idChk" type="button" id="idChk" value="N" style="margin-left:230px;">확인</button> 
         		</div>
        			<div class="form-group">
