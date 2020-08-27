@@ -47,3 +47,43 @@ insert into post(post_id, title, user_id, content, board_name)
 values((select nvl(max(post_id),0)+1 from post),'Test3','uub34322','TEST3','DUS');
 insert into post(post_id, title, user_id, content, board_name)
 values((select nvl(max(post_id),0)+1 from post),'Test4','9994343','TEST4','COR');
+
+
+
+
+
+
+
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡ member table test ㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+(Modal scroll test)
+
+
+insert into member (user_id,name,pw,hp,sex) values ('test01', 'test01', 'test01', 'test01', 'test01');
+insert into member (user_id,name,pw,hp,sex) values ('test02', 'test02', 'test02', 'test02', 'test02');
+insert into member (user_id,name,pw,hp,sex) values ('test03', 'test03', 'test03', 'test03', 'test03');
+insert into member (user_id,name,pw,hp,sex) values ('test04', 'test04', 'test04', 'test04', 'test04');
+insert into member (user_id,name,pw,hp,sex) values ('test05', 'test05', 'test05', 'test05', 'test05');
+insert into member (user_id,name,pw,hp,sex) values ('test06', 'test06', 'test06', 'test06', 'test06');
+insert into member (user_id,name,pw,hp,sex) values ('test07', 'test07', 'test07', 'test07', 'test07');
+insert into member (user_id,name,pw,hp,sex) values ('test08', 'test08', 'test08', 'test08', 'test08');
+insert into member (user_id,name,pw,hp,sex) values ('test09', 'test09', 'test09', 'test09', 'test09');
+insert into member (user_id,name,pw,hp,sex) values ('test10', 'test10', 'test10', 'test10', 'test10');
+insert into member (user_id,name,pw,hp,sex) values ('test11', 'test11', 'test11', 'test11', 'test11');
+insert into member (user_id,name,pw,hp,sex) values ('test12', 'test12', 'test12', 'test12', 'test12');
+insert into member (user_id,name,pw,hp,sex) values ('test13', 'test13', 'test13', 'test13', 'test13');
+insert into member (user_id,name,pw,hp,sex) values ('test14', 'test14', 'test14', 'test14', 'test14');
+insert into member (user_id,name,pw,hp,sex) values ('test15', 'test15', 'test15', 'test15', 'test15');
+insert into member (user_id,name,pw,hp,sex) values ('test16', 'test16', 'test16', 'test16', 'test16');
+insert into member (user_id,name,pw,hp,sex) values ('test17', 'test17', 'test17', 'test17', 'test17');
+insert into member (user_id,name,pw,hp,sex) values ('test18', 'test18', 'test18', 'test18', 'test18');
+insert into member (user_id,name,pw,hp,sex) values ('test19', 'test19', 'test19', 'test19', 'test19');
+insert into member (user_id,name,pw,hp,sex) values ('test20', 'test20', 'test20', 'test20', 'test20');
+insert into member (user_id,name,pw,hp,sex) values ('test21', 'test21', 'test21', 'test21', 'test21');
+insert into member (user_id,name,pw,hp,sex) values ('test22', 'test22', 'test22', 'test22', 'test22');
+insert into member (user_id,name,pw,hp,sex) values ('test23', 'test23', 'test23', 'test23', 'test23');
+insert into member (user_id,name,pw,hp,sex) values ('test24', 'test24', 'test24', 'test24', 'test24');
+insert into member (user_id,name,pw,hp,sex) values ('test25', 'test25', 'test25', 'test25', 'test25');
+insert into member (user_id,name,pw,hp,sex) values ('test26', 'test26', 'test26', 'test26', 'test26');
+
